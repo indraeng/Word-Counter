@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            color: white;
+            background-color: rgb(16, 16, 109);
+            padding: 10px;
+            margin: 0px;
+        }
+        #textbox{
+            
+            margin: 0px;
+            height: 400px;
+            width: 99.5%;
+            font-size: 20px;
+        }
+        p{
+            text-align: center;
+            color: white;
+            background-color: rgb(16, 16, 109);
+            padding: 10px;
+            margin: 0px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Word and character counter</h1>
+    <textarea id = "textbox" placeholder="Pleace enter your text here" cols="50" rows="20"></textarea>
+    <p><span id="word">0</span> Word and <span id="char">0</span> character</p>
+    <script>
+        let textbox = document.getElementById("textbox");
+        textbox.addEventListener('input',function(){
+            let text = this.value;
+
+            let char = text.length;
+            document.getElementById('char').innerHTML = char;
+
+            text = text.trim();
+            let word = text.split(" ");
+            word = word.filter(val => val!="");
+            word = word.filter(val => val!=",");
+            word = word.filter(val => val!=".");
+            word = word.filter(val => val!="?");
+            word = word.length;
+            document.getElementById('word').innerHTML = word;
+        });
+        
+        
+    </script>
+</body>
+</html>
